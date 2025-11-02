@@ -1,0 +1,230 @@
+:root {
+  --primary-color: #eb4120;
+  --primary-color-alt: #ff0000;
+  --text-dark: #000000;
+  --text-light: #ffffff;
+  --text-secondary: #374b5c;
+  --bg-light-gray: #f1f3f5;
+  --bg-white: #ffffff;
+  --border-color: #dcdcdc;
+  
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Global Styles ===== */
+body {
+  font-family: 'Poppins', 'Arial', sans-serif;
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+}
+
+/* ===== Modal Overlay ===== */
+.modal {
+  display: flex; 
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 40px 0;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 30px;
+  right: 60px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #ff0000;
+  transform: scale(1.2);
+}
+
+
+.application-form-container {
+  max-width: 650px;     
+  margin: 0 auto;
+  background-color: var(--bg-white);
+  box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.15);
+  padding: 20px 30px;    
+  border-radius: 20px;
+}
+
+
+.application-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 28px;
+  line-height: 36px;
+  color: #162d3d;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.form-subtitle {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #162d3d;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group-full {
+  grid-column: span 2;
+}
+
+.form-group label {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #32536a;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  border: 1px solid var(--text-dark);
+  border-radius: 6px;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+}
+
+.form-group input {
+  height: 42px;
+}
+
+.form-group textarea {
+  min-height: 139px;
+  resize: vertical;
+}
+
+/* ===== File Upload Section ===== */
+.file-drop-area {
+  border: 1px solid var(--text-dark);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.48);
+  min-height: 139px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.file-drop-area:hover {
+  background-color: rgba(245, 245, 245, 0.9);
+  border-color: #0078ff;
+}
+
+.file-drop-area span {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: var(--text-dark);
+}
+
+.file-drop-area img {
+  width: 23px;
+  height: 23px;
+}
+
+.file-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.btn-submit {
+  font-family: 'Encode Sans', sans-serif;
+  font-size: 16px;
+  line-height: 42px;
+  color: var(--text-dark);
+  border: 1.5px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 5px 25px;
+  margin-top: 25px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.btn-submit:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .application-form-container {
+    padding: 40px 20px;
+    box-shadow: none;
+  }
+
+  .form-title {
+    font-size: 24px;
+  }
+
+  .form-subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .form-group,
+  .form-group-full {
+    grid-column: 1 / -1; 
+  }
+
+  input[type="file"] {
+    font-size: 14px;
+    max-width: 100%;
+  }
+}
